@@ -81,7 +81,7 @@ const cardChartData2 = {
   labels: [],
   datasets: [
     {
-      label: 'Quantity',
+      label: 'Temp',
       backgroundColor: brandInfo,
       borderColor: 'rgba(255,255,255,.55)',
       data: [0],
