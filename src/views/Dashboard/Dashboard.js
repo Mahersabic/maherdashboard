@@ -330,7 +330,7 @@ class Dashboard extends Component {
               <Card className="text-white bg-info">
                 <CardBody className="pb-0">
                   <div className="text-value">{ last_item.quantity }</div>
-                  <div>Quantity</div>
+                  <div>Temp</div>
                 </CardBody>
                 <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
                   <Line data={cardChartData2} options={cardChartOpts2} height={70} />
