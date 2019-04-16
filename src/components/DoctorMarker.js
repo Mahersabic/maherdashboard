@@ -7,14 +7,22 @@ export default class DoctorMarker extends React.Component {
 
 
 
-  render(){
+  handleData = () => { // called when user click delete button
+    const { doctor, onGetMarkerData } = this.props;
+    onGetMarkerData(doctor);
+  }
 
+  
+
+   render(){
+    
     const { doctor } = this.props;
 
     return(
         <Marker
           position={this.props.location}
           icon={doctor.status === '0'? red : green}
+          onClick={this.handleData}
         >
         </Marker>
     );

@@ -18,17 +18,23 @@ const mapStyles = {
 const DoctorsMap = withScriptjs(withGoogleMap((props) =>{
 
   let i = 0;
+  const {onGetMarkerData} = props;
+
+
   const markers = props.doctors.map( doctor => <DoctorMarker
                     key={i++}
                     doctor={doctor}
+                    onGetMarkerData = {onGetMarkerData}
                     location={{lat: parseFloat(doctor.latitude), lng: parseFloat(doctor.longitude)}}
                   />);
 
+  
   return (
       <GoogleMap
         style={mapStyles}
         defaultZoom={13}
         center={ { lat:  25.333827, lng: 49.597226 } }
+        
         >
         {markers}
       </GoogleMap>

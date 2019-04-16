@@ -81,7 +81,7 @@ const cardChartData2 = {
   labels: [],
   datasets: [
     {
-      label: 'Temperature',
+      label: 'Quantity',
       backgroundColor: brandInfo,
       borderColor: 'rgba(255,255,255,.55)',
       data: [0],
@@ -185,7 +185,7 @@ const cardChartData3 = {
   labels: [],
   datasets: [
     {
-      label: 'Humidity',
+      label: 'No of Order',
       backgroundColor: 'rgba(255,255,255,.2)',
       borderColor: 'rgba(255,255,255,.55)',
       data: [0],
@@ -296,6 +296,14 @@ class Dashboard extends Component {
 
 
 
+  
+  getMarkerData = (item) => {
+    this.setState({                // set state into firebase data
+      last_item: item
+  })
+  } 
+
+
    render() {
 
     const { doctors, list1, last_item } = this.state;    // get doctors object from state
@@ -330,7 +338,7 @@ class Dashboard extends Component {
               <Card className="text-white bg-info">
                 <CardBody className="pb-0">
                   <div className="text-value">{ last_item.quantity }</div>
-                  <div>Ttemperature</div>
+                  <div>Temperature</div>
                 </CardBody>
                 <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
                   <Line data={cardChartData2} options={cardChartOpts2} height={70} />
@@ -389,6 +397,7 @@ class Dashboard extends Component {
                     loadingElement={<div style={{ height: `100%` }} />}
                     containerElement={<div style={{ height: `100%`, width: `100%` }} />}
                     mapElement={<div style={{ height: `100%` }} />}
+                    onGetMarkerData = {this.getMarkerData}
                   />
 
 
